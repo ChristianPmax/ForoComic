@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
+    $DATABASE_URL = parse_url('postgres://xmjkolxqriatfo:b6dc98d4378cb5365729db0fe2d8aba30fbffe2e071ca3ad264d4807bfc7179a@ec2-34-206-148-196.compute-1.amazonaws.com:5432/d98pro3gqu244e');
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +69,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
+            'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
